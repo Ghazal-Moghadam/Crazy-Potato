@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
  private void Start(){  
     anim = GetComponent<Animator>();
     rb = GetComponent<Rigidbody2D>();
+
+    healthText.text = maxHealth.ToString();
+    
  }
 
 
