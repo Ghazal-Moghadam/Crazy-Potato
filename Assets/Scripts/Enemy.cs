@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] int maxHealth = 100;
     [SerializeField] float speed = 5f;
+
     private int currentHealth;
 
     Animator anim;
@@ -26,6 +27,10 @@ public class Enemy : MonoBehaviour
             direction.Normalize();
 
             transform.position += direction * speed * Time.deltaTime;
+
+            // Change enemy direction to face the Player
+            var playerToTheRight = target.position.x > transform.position.x;
+            transform.localScale = new Vector2(playerToTheRight ? -1 : 1, 1);
         }
     }
 
